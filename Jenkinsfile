@@ -1,10 +1,12 @@
 pipeline {
   agent any
   stages {
-    stage('initialize') {
+    stage('Build') {
       steps {
-        echo 'Starting Lidor\'s home task'
-        echo 'hello'
+        sh '''echo "Building the task code..."
+mvn -version
+mkdir -p target
+touch "target/spring-boot.war"'''
       }
     }
   }
